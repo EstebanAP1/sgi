@@ -12,18 +12,22 @@ export default function LayoutUsuarios() {
       <nav className='flex justify-end items-center gap-2 md:gap-5'>
         <Link
           href='/dashboard/usuarios'
-          className={clsx(
-            'bg-gray-200 text-primary px-2 py-1 rounded-lg text-center font-medium  md:w-24',
-            name === 'usuarios' && 'bg-primary/40 text-indigo-500'
-          )}>
+          className={`px-2 py-1 rounded-lg text-center font-medium  md:w-24
+            ${
+              name === 'usuarios'
+                ? 'bg-primary/40 text-indigo-500'
+                : 'bg-gray-200 text-primary'
+            }`}>
           Usuarios
         </Link>
         <Link
           href='/dashboard/roles'
-          className={clsx(
-            'bg-gray-200 text-primary px-2 py-1 rounded-lg text-center font-medium  md:w-24',
-            name === 'roles' && 'bg-primary/40 text-indigo-500'
-          )}>
+          className={`px-2 py-1 rounded-lg text-center font-medium  md:w-24
+          ${
+            name === 'roles'
+              ? 'bg-primary/40 text-indigo-500'
+              : 'bg-gray-200 text-primary'
+          }`}>
           Roles
         </Link>
       </nav>
