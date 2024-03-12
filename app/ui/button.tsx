@@ -8,7 +8,7 @@ export function Button({ children, className, ...rest }: ButtonProps) {
   return (
     <button
       className={clsx(
-        'px-4 py-2 bg-primary text-white rounded-xl hover:bg-hoverPrimary transition-all select-none',
+        'select-none rounded-xl bg-primary px-4 py-2 text-white transition-all hover:bg-hoverPrimary',
         className
       )}
       {...rest}>

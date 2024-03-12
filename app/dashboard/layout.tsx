@@ -32,22 +32,22 @@ export default function DashboardLayout({
           className={`flex ${active && styles.parentSidenav}`}
           onClick={() => setActive(false)}></div>
         <SideNav active={active} />
-        <main className='w-full flex flex-col px-5 py-3 gap-6'>
-          <header className='w-full flex justify-between lg:justify-end items-center bg-white h-16 shadow-lg rounded-lg px-5 text-primary'>
+        <main className='flex w-full flex-col gap-6 px-5 py-3'>
+          <header className='flex h-16 w-full items-center justify-between rounded-lg bg-white px-5 text-primary shadow-lg lg:justify-end'>
             <button
-              className='flex justify-center items-center lg:hidden'
+              className='flex items-center justify-center lg:hidden'
               onClick={() => setActive(!active)}>
               <Bars3Icon className='size-6' />
             </button>
-            <div className='flex justify-center items-center gap-2'>
-              <p className='text-center text-primary font-semibold text-xs md:text-base'>
+            <div className='flex items-center justify-center gap-2'>
+              <p className='text-center text-xs font-semibold text-primary md:text-base'>
                 Esteban Alejandro Padilla Padilla
               </p>
-              <div className='size-8 md:size-10 bg-gray-300 rounded-full'></div>
+              <div className='size-8 rounded-full bg-gray-300 md:size-10'></div>
             </div>
           </header>
           <section
-            className={`bg-white h-screen w-full p-5 rounded-lg shadow-lg overflow-y-auto ${styles.scrollbar}`}>
+            className={`h-screen w-full overflow-y-auto rounded-lg bg-white p-5 shadow-lg ${styles.scrollbar}`}>
             {children}
           </section>
         </main>
