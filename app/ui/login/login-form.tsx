@@ -6,10 +6,10 @@ import {
   ArrowRightIcon
 } from '@heroicons/react/24/outline'
 import React, { useState } from 'react'
-import { Input } from '@app/ui/input'
-import { Button } from '@app/ui/button'
+import { Input } from '@/app/ui/input'
+import { Button } from '@/app/ui/button'
 import { useFormState, useFormStatus } from 'react-dom'
-import { authenticate } from '@app/lib/actions'
+import { authenticate } from '@/app/lib/actions'
 
 export default function LoginForm() {
   const [visible, setVisible] = useState(false)
@@ -108,7 +108,7 @@ function LoginButton() {
       aria-disabled={pending}
       disabled={pending}>
       Iniciar sesión
-      <div className='transition-all group-hover/login-button:flex-1'></div>
+      <div className='transition group-hover/login-button:flex-1'></div>
       <ArrowRightIcon className='size-5 text-white' />
     </Button>
   )

@@ -60,13 +60,13 @@ export default function NavLinks() {
           <Link
             key={principalUrl}
             href={principalUrl}
-            className={`group/navlink relative flex w-full select-none flex-row items-center justify-start gap-2 rounded-lg p-3 transition-all
+            className={`group/navlink relative flex w-full select-none flex-row items-center justify-start gap-2 rounded-lg p-3 transition
             ${
               link.url.includes(pathname)
                 ? `bg-primary/25 font-semibold text-indigo-500 ${styles.activeLink}`
                 : 'text-primary hover:bg-background'
             }`}>
-            <Icon className='w-5 transition-all group-hover/navlink:scale-110' />
+            <Icon className='w-5 transition group-hover/navlink:scale-110' />
             {link.title}
           </Link>
         )

@@ -14,11 +14,11 @@ const config: Config = {
       backgroundColor: {
         background: '#f2f2f2',
         primary: '#526cff',
-        hoverPrimary: '#2b4bff'
+        hoverPrimary: '#4762fc'
       },
       borderColor: {
         primary: '#cfcfcf',
-        hoverPrimary: '#2b4bff'
+        hoverPrimary: '#4762fc'
       }
     }
   },

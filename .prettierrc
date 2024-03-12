@@ -9,5 +9,6 @@
   "bracketSameLine": true,
   "arrowParens": "avoid",
   "trailingComma": "none",
-  "quoteProps": "consistent"
+  "quoteProps": "consistent",
+  "tabWidth": 2
 }

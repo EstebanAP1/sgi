@@ -19,13 +19,21 @@ type State = {
   message?: string | null
 }
 
+const userRoutes = ['/dashboard', '/dashboard/usuarios', '/dashboard/roles']
+
 export async function authenticate(prevState: State, formData: FormData) {
   try {
     const validation = loginSchema.safeParse(Object.fromEntries(formData))
     if (!validation.success)
       return { errors: validation.error.flatten().fieldErrors, message: null }
 
-    document.cookie = 'token=1234'
+    // TODO: Enviar credenciales al endpoint.
+
+    const token = '1234'
+    const routesString = userRoutes.join(',')
+
+    document.cookie = `token=${token};samesite`
+    document.cookie = `routes=${routesString};samesite`
 
     return { message: 'Success!' }
   } catch (error) {
