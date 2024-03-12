@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 export default function middleware(req: NextRequest) {
   const token = req.cookies.get('token')
 
-  if (req.nextUrl.pathname === '/' && !token) return
+  if (req.nextUrl.pathname === '/' && !token) return NextResponse.next()
 
   if (!token) return NextResponse.redirect(new URL('/', req.url))
 
@@ -14,9 +14,9 @@ export default function middleware(req: NextRequest) {
   if (!userRoutes?.includes(req.nextUrl.pathname))
     return NextResponse.redirect(new URL('/dashboard', req.url))
 
-  req.headers.set('Authorization', `Bearer ${token}`)
+  return NextResponse.next()
 }
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|.*\\.png$).*)']
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|.*\\.png$).*)']
 }

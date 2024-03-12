@@ -1,3 +1,62 @@
+export function getCookie(name: string) {
+  let matches = document.cookie.match(
+    new RegExp(
+      '(?:^|; )' +
+        name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') +
+        '=([^;]*)'
+    )
+  )
+  return matches ? decodeURIComponent(matches[1]) : undefined
+}
+
+export function setCookie({
+  name,
+  value,
+  options = {}
+}: {
+  name: string
+  value: string
+  options?: {
+    'secure'?: boolean
+    'samesite'?: 'strict' | 'lax' | 'none'
+    'max-age'?: number
+    'expires'?: string | Date
+    'path'?: string
+  }
+}) {
+  options = {
+    path: '/',
+    // agregar otros valores predeterminados si es necesario
+    ...options
+  }
+
+  if (options.expires instanceof Date) {
+    options.expires = options.expires.toUTCString()
+  }
+
+  let updatedCookie = encodeURIComponent(name) + '=' + encodeURIComponent(value)
+
+  for (let optionKey in options) {
+    updatedCookie += '; ' + optionKey
+    let optionValue = options[optionKey as keyof typeof options]
+    if (optionValue !== true) {
+      updatedCookie += '=' + optionValue
+    }
+  }
+
+  document.cookie = updatedCookie
+}
+
+export function deleteCookie(name: string) {
+  setCookie({
+    name,
+    value: '',
+    options: {
+      'max-age': -1
+    }
+  })
+}
+
 export const formatDateToLocal = (date: Date, locale: string = 'es-ES') => {
   const options: Intl.DateTimeFormatOptions = {
     day: 'numeric',

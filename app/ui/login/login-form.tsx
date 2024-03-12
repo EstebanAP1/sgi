@@ -12,6 +12,9 @@ import { useFormState, useFormStatus } from 'react-dom'
 import { authenticate } from '@/app/lib/actions'
 
 export default function LoginForm() {
+  const initialState = { message: null, errors: {}, success: false }
+  const [state, dispatch] = useFormState(authenticate, initialState)
+
   const [visible, setVisible] = useState(false)
   const [val, setVal] = useState('')
   const changeVisibility = () => setVisible(!visible)
@@ -20,8 +23,6 @@ export default function LoginForm() {
     setVal(event.target.value.replace(/\s/g, ''))
   }
 
-  const initialState = { message: null, errors: {} }
-  const [state, dispatch] = useFormState(authenticate, initialState)
   return (
     <form
       action={dispatch}
@@ -42,7 +43,7 @@ export default function LoginForm() {
           aria-describedby='username-error'
         />
         <div id='username-error' aria-live='polite' aria-atomic='true'>
-          {state.errors?.username &&
+          {state?.errors?.username &&
             state.errors.username.map((error: string) => (
               <p className='mt-2 text-sm text-red-500' key={error}>
                 {error}
@@ -75,7 +76,7 @@ export default function LoginForm() {
           </span>
         </div>
         <div id='password-error' aria-live='polite' aria-atomic='true'>
-          {state.errors?.password &&
+          {state?.errors?.password &&
             state.errors.password.map((error: string) => (
               <p className='mt-2 text-sm text-red-500' key={error}>
                 {error}
@@ -85,7 +86,7 @@ export default function LoginForm() {
       </div>
       <LoginButton />
       <div>
-        {state.message && (
+        {state?.message && (
           <>
             <p className='select-none text-sm text-green-500'>
               {state.message}
@@ -108,7 +109,7 @@ function LoginButton() {
       aria-disabled={pending}
       disabled={pending}>
       Iniciar sesión
-      <div className='transition group-hover/login-button:flex-1'></div>
+      <div className='transition-all group-hover/login-button:flex-1'></div>
       <ArrowRightIcon className='size-5 text-white' />
     </Button>
   )

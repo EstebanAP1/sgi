@@ -23,23 +23,6 @@ const links = [
     icon: 'UserIcon',
     submodules: false
   }
-  // {
-  //   title: 'Administración',
-  //   url: false,
-  //   icon: 'ExampleIcon',
-  //   submodules: [
-  //     {
-  //       title: 'Finazas',
-  //       url: ['/dashboard/finanzas'],
-  //       icon: 'ChartBarIcon'
-  //     },
-  //     {
-  //       title: 'Example',
-  //       url: ['/dashboard/example'],
-  //       icon: 'DocumentTextIcon'
-  //     }
-  //   ]
-  // }
 ]
 
 const icons = {
@@ -66,7 +49,7 @@ export default function NavLinks() {
                 ? `bg-primary/25 font-semibold text-indigo-500 ${styles.activeLink}`
                 : 'text-primary hover:bg-background'
             }`}>
-            <Icon className='w-5 transition group-hover/navlink:scale-110' />
+            <Icon className='size-5 transition group-hover/navlink:scale-110' />
             {link.title}
           </Link>
         )

@@ -1,7 +1,9 @@
+'use server'
+
 import { FilteredUser } from '@/app/lib/definitions'
 import { PencilIcon, ShieldCheckIcon } from '@heroicons/react/24/outline'
 
-export default async function CertificadosTable({
+export default async function UsersTable({
   users,
   currentPage,
   itemsPerPage

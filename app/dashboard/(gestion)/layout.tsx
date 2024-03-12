@@ -3,6 +3,7 @@
 import { PlusIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { Suspense } from 'react'
 
 export default function LayoutUsuarios({
   children
@@ -46,7 +47,9 @@ export default function LayoutUsuarios({
           </Link>
         </nav>
       </header>
-      <main className='mt-5 flex w-full flex-col items-center'>{children}</main>
+      <main className='mt-5 flex w-full flex-col items-center'>
+        <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+      </main>
     </>
   )
 }
