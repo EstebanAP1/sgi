@@ -25,9 +25,9 @@ export default function LoginForm() {
   return (
     <form
       action={dispatch}
-      className='w-full flex flex-col justify-center items-center gap-5'>
-      <div className='flex w-full flex-col justify-center items-start'>
-        <label htmlFor='username' className='text-sm text-primary select-none'>
+      className='flex w-full flex-col items-center justify-center gap-5'>
+      <div className='flex w-full flex-col items-start justify-center'>
+        <label htmlFor='username' className='select-none text-sm text-primary'>
           Ingresa tu usuario
         </label>
         <Input
@@ -50,22 +50,22 @@ export default function LoginForm() {
             ))}
         </div>
       </div>
-      <div className='flex w-full flex-col justify-center items-start gap-2'>
-        <label htmlFor='password' className='text-sm text-primary select-none'>
+      <div className='flex w-full flex-col items-start justify-center gap-2'>
+        <label htmlFor='password' className='select-none text-sm text-primary'>
           Ingresa tu contraseña
         </label>
-        <div className='flex flex-row w-full'>
+        <div className='flex w-full flex-row'>
           <Input
             type={visible ? 'text' : 'password'}
             name='password'
             id='password'
-            className='peer/password rounded-r-none outline-none border-r-0'
+            className='peer/password rounded-r-none border-r-0 outline-none'
             spellCheck={false}
             aria-required
             aria-describedby='password-error'
           />
           <span
-            className='flex items-center justify-center bg-background rounded-r-xl border-2 border-l-0 border-gray-400 peer-focus/password:border-hoverPrimary px-2 cursor-pointer'
+            className='flex cursor-pointer items-center justify-center rounded-r-xl border-2 border-l-0 border-gray-400 bg-background px-2 peer-focus/password:border-hoverPrimary'
             onClick={changeVisibility}>
             {visible ? (
               <EyeIcon className='size-5 text-primary' />
@@ -87,7 +87,7 @@ export default function LoginForm() {
       <div>
         {state.message && (
           <>
-            <p className='text-sm text-green-500 select-none'>
+            <p className='select-none text-sm text-green-500'>
               {state.message}
             </p>
           </>
@@ -102,13 +102,13 @@ function LoginButton() {
   return (
     <Button
       type='submit'
-      className={`group/login-button w-full mt-2 flex flex-row items-center justify-start gap-1 ${
+      className={`group/login-button mt-2 flex w-full flex-row items-center justify-start gap-1 ${
         pending ? 'cursor-not-allowed opacity-90' : 'cursor-pointer'
       }`}
       aria-disabled={pending}
       disabled={pending}>
       Iniciar sesión
-      <div className='group-hover/login-button:flex-1 transition-all'></div>
+      <div className='transition-all group-hover/login-button:flex-1'></div>
       <ArrowRightIcon className='size-5 text-white' />
     </Button>
   )

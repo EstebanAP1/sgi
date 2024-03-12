@@ -7,12 +7,12 @@ import { usePathname } from 'next/navigation'
 export default function LayoutUsuarios() {
   const name = usePathname().split('/').pop()
   return (
-    <header className='flex w-full h-10 items-center justify-between'>
-      <h1 className='text-primary md:text-2xl font-semibold'>Gestión {name}</h1>
-      <nav className='flex justify-end items-center gap-2 md:gap-5'>
+    <header className='flex h-10 w-full items-center justify-between'>
+      <h1 className='font-semibold text-primary md:text-2xl'>Gestión {name}</h1>
+      <nav className='flex items-center justify-end gap-2 md:gap-5'>
         <Link
           href='/dashboard/usuarios'
-          className={`px-2 py-1 rounded-lg text-center font-medium  md:w-24
+          className={`rounded-lg px-2 py-1 text-center font-medium  md:w-24
             ${
               name === 'usuarios'
                 ? 'bg-primary/40 text-indigo-500'
@@ -22,7 +22,7 @@ export default function LayoutUsuarios() {
         </Link>
         <Link
           href='/dashboard/roles'
-          className={`px-2 py-1 rounded-lg text-center font-medium  md:w-24
+          className={`rounded-lg px-2 py-1 text-center font-medium  md:w-24
           ${
             name === 'roles'
               ? 'bg-primary/40 text-indigo-500'

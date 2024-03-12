@@ -7,10 +7,10 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className='flex min-h-screen items-start justify-center lg:items-center px-5'>
-      <section className='flex flex-col justify-center items-center bg-white px-10 py-8 mt-10 gap-5 rounded-xl shadow-lg lg:mt-0'>
-        <div className='h-28 w-28 bg-black rounded-full'></div>
-        <h1 className='md:text-2xl font-semibold text-center mb-5'>
+    <main className='flex min-h-screen items-start justify-center px-5 lg:items-center'>
+      <section className='mt-10 flex flex-col items-center justify-center gap-5 rounded-xl bg-white px-10 py-8 shadow-lg lg:mt-0'>
+        <div className='h-28 w-28 rounded-full bg-black'></div>
+        <h1 className='mb-5 text-center font-semibold md:text-2xl'>
           Sistema de Gestión Interna
         </h1>
         <LoginForm />

@@ -52,7 +52,7 @@ const icons = {
 export default function NavLinks() {
   const pathname = usePathname()
   return (
-    <nav className='flex flex-col justify-center items-start w-full gap-[3px]'>
+    <nav className='flex w-full flex-col items-start justify-center gap-[3px]'>
       {links.map(link => {
         const principalUrl = link.url[0]
         const Icon = icons[link.icon as keyof typeof icons]
@@ -60,13 +60,13 @@ export default function NavLinks() {
           <Link
             key={principalUrl}
             href={principalUrl}
-            className={`group/navlink relative flex flex-row justify-start items-center w-full p-3 gap-2 transition-all rounded-lg select-none
+            className={`group/navlink relative flex w-full select-none flex-row items-center justify-start gap-2 rounded-lg p-3 transition-all
             ${
               link.url.includes(pathname)
-                ? `bg-primary/25 text-indigo-500 font-semibold ${styles.activeLink}`
+                ? `bg-primary/25 font-semibold text-indigo-500 ${styles.activeLink}`
                 : 'text-primary hover:bg-background'
             }`}>
-            <Icon className='w-5 group-hover/navlink:scale-110 transition-all' />
+            <Icon className='w-5 transition-all group-hover/navlink:scale-110' />
             {link.title}
           </Link>
         )
