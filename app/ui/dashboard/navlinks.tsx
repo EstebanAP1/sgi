@@ -19,7 +19,7 @@ const links = [
   },
   {
     title: 'Gestión',
-    url: ['/dashboard/usuarios', '/dashboard/roles'],
+    url: ['/dashboard/users', '/dashboard/roles'],
     icon: 'UserIcon',
     submodules: false
   }

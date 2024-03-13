@@ -1,10 +1,9 @@
 import { fetchFilteredUser } from '@/app/lib/data'
 import { FilteredUser, User } from '@/app/lib/definitions'
 import Filters from '@/app/ui/dashboard/filters'
-import UsersTable from '@/app/ui/dashboard/gestion/usuarios/table'
+import UsersTable from '@/app/ui/dashboard/management/usuarios/table'
 import Pagination from '@/app/ui/dashboard/pagination'
 import { Metadata } from 'next'
-import { Suspense } from 'react'
 
 export const metadata: Metadata = {
   title: 'Usuarios',
@@ -41,7 +40,7 @@ export default async function UsuariosPage({
 
   return (
     <>
-      <div className='flex w-full flex-col items-end justify-between gap-2 lg:flex-row'>
+      <div className='flex w-full flex-col items-center justify-between gap-2 lg:flex-row lg:items-end'>
         <Filters />
       </div>
       <div className='mt-5 min-w-full rounded-lg bg-background p-2'>

@@ -3,7 +3,6 @@
 import z from 'zod'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
-import { revalidatePath } from 'next/cache'
 
 const loginSchema = z.object({
   username: z
@@ -25,7 +24,7 @@ type State = {
   success?: boolean | null
 }
 
-const userRoutes = ['/dashboard', '/dashboard/usuarios', '/dashboard/roles']
+const userRoutes = ['/dashboard', '/dashboard/users', '/dashboard/roles']
 
 export async function authenticate(prevState: State, formData: FormData) {
   try {
@@ -37,7 +36,7 @@ export async function authenticate(prevState: State, formData: FormData) {
         success: false
       }
 
-    // TODO: Enviar credenciales al endpoint.
+    // TODO: Send credentials to endpoint
 
     const token = '1234'
     const routesString = userRoutes.join(',')
@@ -45,7 +44,7 @@ export async function authenticate(prevState: State, formData: FormData) {
     cookies().set('token', token)
     cookies().set('routes', routesString)
   } catch (error) {
-    // TODO: Aquí van error logs.
+    // TODO: Send error logs
     return { message: 'Database error: Failed to log in!' }
   }
   redirect('/dashboard')
@@ -53,7 +52,7 @@ export async function authenticate(prevState: State, formData: FormData) {
 
 export async function logout() {
   try {
-    // TODO: Logout at endpoint
+    // TODO: Logout with endpoint
     cookies().delete('token')
     cookies().delete('routes')
   } catch (error) {

@@ -77,12 +77,16 @@ function Search({
         <input
           onChange={e => handleSearch(e.target.value)}
           type='text'
+          name='search'
+          id='search'
           defaultValue={searchParams.get('query')?.toString()}
           className='peer w-full rounded-lg rounded-r-none border border-r-0 border-gray-300 px-3 py-2 text-gray-500 focus:border-indigo-600 focus:outline-none'
         />
-        <span className='flex cursor-pointer items-center justify-center rounded-lg rounded-l-none border border-l-0 border-gray-300 px-3 py-2 text-primary peer-focus:border-indigo-600 peer-focus:text-indigo-700'>
-          <MagnifyingGlassIcon className='w-4' />
-        </span>
+        <label
+          htmlFor='search'
+          className='flex cursor-pointer items-center justify-center rounded-lg rounded-l-none border border-l-0 border-gray-300 px-3 py-2 text-primary peer-focus:border-indigo-600 peer-focus:text-indigo-700'>
+          <MagnifyingGlassIcon className='size-4' />
+        </label>
       </div>
     </div>
   )

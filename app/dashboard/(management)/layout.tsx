@@ -14,9 +14,9 @@ export default function LayoutUsuarios({
   return (
     <>
       <header className='flex h-10 w-full items-center justify-between'>
-        <div className='flex items-center gap-2'>
+        <div className='flex flex-col items-start gap-2 max-md:mt-8 md:flex-row'>
           <h1 className='font-semibold text-primary md:text-2xl'>
-            Gestión {name}
+            Gestión {name === 'users' ? 'de Usuarios' : 'de Roles'}
           </h1>
           <Link
             href={`/dashboard/${name}/create`}
@@ -26,10 +26,10 @@ export default function LayoutUsuarios({
         </div>
         <nav className='flex items-center justify-end gap-2 md:gap-5'>
           <Link
-            href='/dashboard/usuarios'
+            href='/dashboard/users'
             className={`select-none rounded-lg px-2 py-1 text-center  font-medium transition hover:scale-105 md:w-24
             ${
-              name === 'usuarios'
+              name === 'users'
                 ? 'bg-primary/40 text-indigo-500'
                 : 'bg-gray-200 text-primary'
             }`}>
