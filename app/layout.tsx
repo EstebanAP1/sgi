@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import '@/app/ui/css/globals.css'
 import { rubik } from '@/app/ui/fonst'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
   title: {
@@ -17,7 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='es'>
-      <body className={`${rubik.className} bg-background`}>{children}</body>
+      <body className={`${rubik.className} bg-background`}>
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   )
 }
