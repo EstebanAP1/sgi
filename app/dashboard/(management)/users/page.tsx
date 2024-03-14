@@ -28,10 +28,12 @@ export default async function UsuariosPage({
   const fetchUsers = (await fetchFilteredUser()) as User[]
 
   const users = fetchUsers.map(user => {
-    const { idtype, idnumber, ...rest } = user
+    const { idtype, idnumber, name, email, created_at } = user
     return {
-      ...rest,
-      document: `${idtype} ${idnumber}`
+      document: `${idtype} ${idnumber}`,
+      name,
+      email,
+      created_at
     }
   })
   const filteredUsers = users.filter(user => {
