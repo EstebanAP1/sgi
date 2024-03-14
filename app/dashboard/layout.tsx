@@ -27,7 +27,7 @@ export default function DashboardLayout({
 
   return (
     <>
-      <div className='flex h-screen w-full'>
+      <div className='flex h-dvh w-full'>
         <div
           className={`flex ${active && styles.parentSidenav}`}
           onClick={() => setActive(false)}></div>
@@ -36,7 +36,8 @@ export default function DashboardLayout({
           <header className='flex h-16 w-full items-center justify-between rounded-lg bg-white px-5 text-primary shadow-lg lg:justify-end'>
             <button
               className='flex items-center justify-center lg:hidden'
-              onClick={() => setActive(!active)}>
+              onClick={() => setActive(!active)}
+              aria-label='Switch sidenav'>
               <Bars3Icon className='size-6' />
             </button>
             <div className='flex items-center justify-center gap-2'>
@@ -47,7 +48,7 @@ export default function DashboardLayout({
             </div>
           </header>
           <section
-            className={`h-screen w-full overflow-y-auto rounded-lg bg-white p-5 shadow-lg ${styles.scrollbar}`}>
+            className={`h-full w-full overflow-y-auto rounded-lg bg-white p-5 shadow-lg ${styles.scrollbar}`}>
             {children}
           </section>
         </main>

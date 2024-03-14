@@ -20,7 +20,8 @@ export default function LayoutUsuarios({
           </h1>
           <Link
             href={`/dashboard/${name}/create`}
-            className='flex items-center justify-center rounded-lg bg-primary p-2 shadow-lg transition hover:scale-110 hover:bg-hoverPrimary'>
+            className='flex items-center justify-center rounded-lg bg-primary p-2 shadow-lg transition hover:scale-110 hover:bg-hoverPrimary'
+            aria-label={`Create a new ${name === 'users' ? 'user' : 'rol'}`}>
             <PlusIcon className='size-5 text-white' />
           </Link>
         </div>
@@ -32,7 +33,8 @@ export default function LayoutUsuarios({
               name === 'users'
                 ? 'bg-primary/40 text-indigo-500'
                 : 'bg-gray-200 text-primary'
-            }`}>
+            }`}
+            aria-label='Go to users management'>
             Usuarios
           </Link>
           <Link
@@ -42,7 +44,8 @@ export default function LayoutUsuarios({
             name === 'roles'
               ? 'bg-primary/40 text-indigo-500'
               : 'bg-gray-200 text-primary'
-          }`}>
+          }`}
+            aria-label='Go to roles management'>
             Roles
           </Link>
         </nav>

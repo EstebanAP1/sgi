@@ -2,7 +2,7 @@
 
 import z from 'zod'
 import { cookies } from 'next/headers'
-import { redirect } from 'next/navigation'
+import { permanentRedirect, redirect } from 'next/navigation'
 
 const loginSchema = z.object({
   username: z
@@ -59,5 +59,5 @@ export async function logout() {
     // TODO: Error logs
     return { message: 'Database error: Failed to log out!' }
   }
-  redirect('/')
+  permanentRedirect('/')
 }

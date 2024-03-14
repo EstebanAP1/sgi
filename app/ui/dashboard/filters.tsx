@@ -27,21 +27,19 @@ function SelectItems({ pathname }: { pathname: string }) {
   }
   return (
     <div className='flex flex-col items-center justify-center'>
-      <label
-        htmlFor='itemsPerPage'
-        className='mb-2 block text-sm font-medium text-primary'>
+      <label className='mb-2 block text-sm font-medium text-primary'>
         Listar por página
+        <select
+          id='itemsPerPage'
+          name='itemsPerPage'
+          className='block w-full cursor-pointer select-none rounded-lg border border-gray-400 bg-background p-2.5 text-sm text-primary outline-none focus:border-indigo-600 focus:ring-indigo-500'
+          defaultValue={itemsPerPage}
+          onChange={handleChange}>
+          <option value='5'>5</option>
+          <option value='8'>8</option>
+          <option value='10'>10</option>
+        </select>
       </label>
-      <select
-        id='itemsPerPage'
-        name='itemsPerPage'
-        className='block w-full cursor-pointer select-none rounded-lg border border-gray-400 bg-background p-2.5 text-sm text-primary outline-none focus:border-indigo-600 focus:ring-indigo-500'
-        defaultValue={itemsPerPage}
-        onChange={handleChange}>
-        <option value='5'>5</option>
-        <option value='8'>8</option>
-        <option value='10'>10</option>
-      </select>
     </div>
   )
 }
@@ -74,18 +72,19 @@ function Search({
   return (
     <div className='flex flex-col items-center justify-center'>
       <div className='relative flex h-full w-full'>
-        <input
-          onChange={e => handleSearch(e.target.value)}
-          type='text'
-          name='search'
-          id='search'
-          defaultValue={searchParams.get('query')?.toString()}
-          className='peer w-full rounded-lg rounded-r-none border border-r-0 border-gray-300 px-3 py-2 text-gray-500 focus:border-indigo-600 focus:outline-none'
-        />
-        <label
-          htmlFor='search'
-          className='flex cursor-pointer items-center justify-center rounded-lg rounded-l-none border border-l-0 border-gray-300 px-3 py-2 text-primary peer-focus:border-indigo-600 peer-focus:text-indigo-700'>
-          <MagnifyingGlassIcon className='size-4' />
+        <label className='flex'>
+          <input
+            onChange={e => handleSearch(e.target.value)}
+            type='text'
+            id='search'
+            name='search'
+            defaultValue={searchParams.get('query')?.toString()}
+            className='peer w-full rounded-lg rounded-r-none border border-r-0 border-gray-300 px-3 py-2 text-gray-500 focus:border-indigo-600 focus:outline-none'
+            aria-label='Search'
+          />
+          <span className='flex cursor-pointer items-center justify-center rounded-lg rounded-l-none border border-l-0 border-gray-300 px-3 py-2 text-primary peer-focus:border-indigo-600 peer-focus:text-indigo-700'>
+            <MagnifyingGlassIcon className='size-4' />
+          </span>
         </label>
       </div>
     </div>

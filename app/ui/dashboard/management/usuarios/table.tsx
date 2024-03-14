@@ -40,10 +40,14 @@ export default async function UsersTable({
                   </p>
                 </div>
                 <div className='flex items-center justify-center gap-2'>
-                  <button className='rounded-lg bg-green-500/80 p-2 text-primary transition hover:scale-110'>
+                  <button
+                    className='rounded-lg bg-green-500/80 p-2 text-primary transition hover:scale-110'
+                    aria-label='Manage user permissions'>
                     <ShieldCheckIcon className='size-5' />
                   </button>
-                  <button className='rounded-lg bg-primary/80 p-2 text-primary transition hover:scale-110'>
+                  <button
+                    className='rounded-lg bg-primary/80 p-2 text-primary transition hover:scale-110'
+                    aria-label='Edit user info'>
                     <PencilIcon className='size-5' />
                   </button>
                 </div>
@@ -94,10 +98,14 @@ export default async function UsersTable({
                 <td className='px-3 py-4'>{user.email}</td>
                 <td className='px-3 py-4'>{user.created_at}</td>
                 <td className='flex items-center justify-center gap-2 px-3 py-2'>
-                  <button className='rounded-lg bg-green-500/80 p-2 text-primary transition hover:scale-110'>
+                  <button
+                    className='rounded-lg bg-green-500/80 p-2 text-primary transition hover:scale-110'
+                    aria-label='Manage user permissions'>
                     <ShieldCheckIcon className='size-4' />
                   </button>
-                  <button className='rounded-lg bg-primary/80 p-2 text-primary transition hover:scale-110'>
+                  <button
+                    className='rounded-lg bg-primary/80 p-2 text-primary transition hover:scale-110'
+                    aria-label='Edit user info'>
                     <PencilIcon className='size-4' />
                   </button>
                 </td>

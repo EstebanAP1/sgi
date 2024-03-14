@@ -83,7 +83,10 @@ function PaginationNumber({
   return isActive || position === 'middle' ? (
     <div className={className}>{page}</div>
   ) : (
-    <Link className={className} href={href}>
+    <Link
+      className={className}
+      href={href}
+      aria-label={`Go to the ${page} table page`}>
       {page}
     </Link>
   )
@@ -118,7 +121,10 @@ function PaginationArrow({
   return isDisabled ? (
     <div className={className}>{icon}</div>
   ) : (
-    <Link className={className} href={href}>
+    <Link
+      className={className}
+      href={href}
+      aria-label={`Go to the ${direction} table page`}>
       {icon}
     </Link>
   )
