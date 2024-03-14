@@ -24,8 +24,6 @@ type State = {
   success?: boolean | null
 }
 
-const userRoutes = ['/dashboard', '/dashboard/users', '/dashboard/roles']
-
 export async function authenticate(prevState: State, formData: FormData) {
   try {
     const validation = loginSchema.safeParse(Object.fromEntries(formData))
@@ -39,10 +37,31 @@ export async function authenticate(prevState: State, formData: FormData) {
     // TODO: Send credentials to endpoint
 
     const token = '1234'
-    const routesString = userRoutes.join(',')
+
+    const userModules = [
+      {
+        title: 'Inicio',
+        url: ['/dashboard'],
+        icon: 'HomeIcon',
+        submodules: false
+      },
+      {
+        title: 'Gestión',
+        url: [
+          '/dashboard/users',
+          '/dashboard/users/create',
+          '/dashboard/users/edit',
+          '/dashboard/roles',
+          '/dashboard/roles/create',
+          '/dashboard/roles/edit'
+        ],
+        icon: 'UserIcon',
+        submodules: false
+      }
+    ]
 
     cookies().set('token', token)
-    cookies().set('routes', routesString)
+    cookies().set('modules', JSON.stringify(userModules))
   } catch (error) {
     // TODO: Send error logs
     return { message: 'Database error: Failed to log in!' }

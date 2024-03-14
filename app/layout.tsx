@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='es'>
-      <body className={`${rubik.className} bg-background`}>
+      <body className={`${rubik.className} min-h-dvh w-dvw bg-background`}>
         {children}
         <SpeedInsights />
       </body>

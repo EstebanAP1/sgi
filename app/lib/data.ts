@@ -11,11 +11,11 @@ export async function fetchFilteredUser() {
       idnumber: 1,
       name: 'John Doe',
       email: 'example@example.com',
-      created_at: '2021-10-10'
+      created_at: '2021-10-12'
     },
     {
       id: randomUUID(),
-      idtype: 'CC',
+      idtype: 'TI',
       idnumber: 2,
       name: 'Jane Doe',
       email: 'example@example.com',
