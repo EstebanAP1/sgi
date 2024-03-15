@@ -1,4 +1,4 @@
-.activeLink::after {
+.activeModule::after {
   content: '';
   position: absolute;
   right: -20px;

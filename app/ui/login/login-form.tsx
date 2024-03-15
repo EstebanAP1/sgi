@@ -41,6 +41,7 @@ export default function LoginForm() {
           spellCheck={false}
           aria-required
           aria-describedby='username-error'
+          autoComplete='off'
         />
         <div id='username-error' aria-live='polite' aria-atomic='true'>
           {state?.errors?.username &&

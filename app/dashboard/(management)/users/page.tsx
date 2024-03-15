@@ -1,7 +1,7 @@
 import { fetchFilteredUser } from '@/app/lib/data'
 import { FilteredUser, User } from '@/app/lib/definitions'
 import Filters from '@/app/ui/dashboard/filters'
-import UsersTable from '@/app/ui/dashboard/management/usuarios/table'
+import UsersTable from '@/app/ui/dashboard/management/users/table'
 import Pagination from '@/app/ui/dashboard/pagination'
 import { Metadata } from 'next'
 
@@ -27,15 +27,23 @@ export default async function UsuariosPage({
 
   const fetchUsers = (await fetchFilteredUser()) as User[]
 
-  let users = fetchUsers.map(user => {
+  const users = fetchUsers.map(user => {
+    const { idtype, idnumber, name, email, created_at } = user
     return {
-      ...user,
-      document: `${user.idtype}: ${user.idnumber}`
+      document: `${idtype} ${idnumber}`,
+      name,
+      email,
+      created_at
     }
+  })
+  const filteredUsers = users.filter(user => {
+    const sw = Object.values(user).map(data =>
+      data.toString().toLowerCase().includes(query.toLowerCase())
+    )
+    if (!sw.includes(true)) return
+    return user
   }) as FilteredUser[]
-  if (query) {
-  }
-  const totalPages = Math.ceil(users.length / itemsPerPage)
+  const totalPages = Math.ceil(filteredUsers.length / itemsPerPage)
   const currentPage = page > 0 && page <= totalPages ? page : 1
 
   return (
@@ -45,7 +53,7 @@ export default async function UsuariosPage({
       </div>
       <div className='mt-5 min-w-full rounded-lg bg-background p-2'>
         <UsersTable
-          users={users}
+          users={filteredUsers}
           currentPage={currentPage}
           itemsPerPage={itemsPerPage}
         />

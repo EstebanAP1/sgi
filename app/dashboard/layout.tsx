@@ -27,7 +27,7 @@ export default function DashboardLayout({
 
   return (
     <>
-      <div className='flex h-dvh w-full'>
+      <div className='flex h-dvh w-dvw'>
         <div
           className={`flex ${active && styles.parentSidenav}`}
           onClick={() => setActive(false)}></div>
